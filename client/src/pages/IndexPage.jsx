@@ -17,7 +17,7 @@ function IndexPage() {
         <Link to={'/place/'+place._id}>
           <div className=' rounded-2xl bg-gray-500 flex'>
             {place.photos?.[0] && (
-              <img className=' rounded-2xl object-cover aspect-square' src={'http://localhost:3000/uploads/' + place.photos?.[0]} alt="" />
+              <img className=' rounded-2xl object-cover aspect-square' src={'https://wanderstay-backend.onrender.com/uploads/' + place.photos?.[0]} alt="" />
             )}
           </div>
           <h3 className=' font-bold'>{place.address}</h3>

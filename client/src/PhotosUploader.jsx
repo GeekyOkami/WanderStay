@@ -18,7 +18,7 @@ function PhotosUploader({ addedPhotos, onChange }) {
         for (let i = 0; i < files.length; i++) {
             data.append('photos', files[i]);
         }
-        axios.post('/upload',{ withCredentials: true }, data, {
+        axios.post('/upload', data, {
             headers: { 'Content-Type': 'multipart/form-data' }
         }).then(response => {
             const { data: filenames } = response;

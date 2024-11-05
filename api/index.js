@@ -24,14 +24,12 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname+'/uploads'));
 const allowedOrigins = ['https://wanderstay-frontend.onrender.com'];
 app.use(cors({
-    origin: function (origin, callback) {
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Allows cookies to be sent with requests
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 
 
 mongoose.connect(process.env.MONGO_URL);

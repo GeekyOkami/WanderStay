@@ -18,10 +18,6 @@ const port = process.env.PORT || 3000;
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'fasenjflsdmfadjnjfjfjdbwbp32238ubewf29f2fb29fbf';
-
-app.use(express.json());
-app.use(cookieParser());
-app.use('/uploads', express.static(__dirname+'/uploads'));
 const allowedOrigins = ['https://wanderstay-frontend.onrender.com'];
 app.use(cors({
     origin: allowedOrigins,
@@ -29,6 +25,10 @@ app.use(cors({
     credentials: true, // Allows cookies to be sent with requests
     allowedHeaders: ['Content-Type', 'Authorization','Access-Control-Allow-Origin'],
 }));
+app.use(express.json());
+app.use(cookieParser());
+app.use('/uploads', express.static(__dirname+'/uploads'));
+
 
 
 

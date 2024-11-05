@@ -22,9 +22,15 @@ const jwtSecret = 'fasenjflsdmfadjnjfjfjdbwbp32238ubewf29f2fb29fbf';
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname+'/uploads'));
+const allowedOrigins = ['https://wanderstay-frontend.onrender.com'];
 app.use(cors({
-    credentials: true,
-    origin: 'https://wanderstay-frontend.onrender.com',
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
 }));
 
 

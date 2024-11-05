@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
 // CORS Configuration
-const allowedOrigins = ['https://wanderstay-frontend.onrender.com'];
+const allowedOrigins = ['https://wanderstay-frontend.onrender.com','https://wanderstay-frontend.onrender.com/bookings','https://wanderstay-frontend.onrender.com/user-places'];
 app.use(cors({
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
